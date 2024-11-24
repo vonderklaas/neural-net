@@ -2,3 +2,7 @@ venv
 /venv
 
 .mypy_cache
+
+output
+output.svg
+output.png
