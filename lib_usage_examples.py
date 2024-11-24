@@ -12,7 +12,6 @@ plt.plot(xs, ys)
 plt.xlabel("x")
 plt.ylabel("f(x)")
 plt.title("Graph of f(x) = 3x^2 - 4x + 5")
-# Display the plot
 plt.show()
 
 # Derivative?

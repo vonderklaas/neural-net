@@ -1,8 +1,12 @@
+# Environment
+.vscode
 venv
 /venv
 
+# Plugin
 .mypy_cache
 
+# Graphs
 output
 output.svg
 output.png
