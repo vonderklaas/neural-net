@@ -1,0 +1,20 @@
+### Terminology
+
+**The Loss Function** is how the network measures its mistakes. It's like a scorecard that tells the network, "You're this far off from the correct answer." The goal of training the neural network is to minimize this loss.
+If you're trying to guess a number, the loss function might be the difference between your guess and the actual number.
+
+**Backpropagation** is the way a neural network learns from its mistakes. It measures how far the network's guess (output) is from the actual correct answer (target). It sends this error information back through the network to figure out which parts (weights) need to change. It tweaks the "strength" of the connections between neurons to make the output closer to the correct answer next time. We can iteratively tune the weights of the neural network to minimize the loss function and therefore improve the accuracy of a network.
+Backpropagation is at the mathematical core of any modern deep neural network library, like PyTorch.
+
+
+**Weights** are like the knobs on a machine. They control how much influence one part of the network has on another. For example, if you're deciding whether to go outside, you might weigh the temperature, rain, and your mood differently. If rain has a high weight, you’re less likely to go out.
+Each connection between neurons has a weight. These weights are adjusted during backpropagation to improve the network's accuracy.
+
+**Derivative** is a concept from mathematics that measures how something changes. It tells you how much one thing is changing in relation to another. Imagine you're driving a car, and you keep track of how far you've traveled over time. If you calculate how fast your position is changing at any moment, you're finding the derivative of your distance with respect to time. In simpler terms: distance is what you're tracking, and derivative of distance is your speed. Why derivatives are useful? In physics: we use it to measure speed (change in position over time) or acceleration (change in speed over time). In economics: to find the rate of change in profit or cost as production increases. In neural networks: to adjust weights during backpropagation. The derivative helps us know how changing a weight affects the loss function.
+
+**Neural networks** are mathematical models that process input data using a set of parameters called weights. They perform computations through a series of layers to produce an output, which can either be predictions or, during training, the value of a loss function. Neural networks belong to a specific class of mathematical models designed to approximate complex functions and learn patterns from data. In this context, backpropagation is a general algorithm that works with any mathematical expression. It doesn’t specifically depend on neural networks—it’s just a method to calculate gradients efficiently. Gradients are like directions that tell us how to change things to make them better, such as reducing errors. In neural networks, we use backpropagation to adjust the weights during training, but the same method can be used for any problem involving smooth, mathematical functions.
+
+**Tensors** in this context, are just a way to organize data, like fancy containers for numbers. They can be as simple as a single number (a scalar), a list of numbers (a vector), or even large grids of numbers (like arrays or matrices). Tensors make it easy to do big calculations on a lot of numbers at once. Since these calculations are designed to take advantage of parallel processing (like using GPUs), everything runs really fast, even for large datasets.
+
+**Vector** is a one-dimensional array of numbers, typically used for numerical computations. Unlike general-purpose data structures like Python lists, vectors (such as NumPy arrays) support element-wise mathematical operations directly, meaning you can perform operations like addition, multiplication, or exponentiation on every element of the vector at once, without needing loops.
+
