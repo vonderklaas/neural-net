@@ -8,6 +8,8 @@ class Value:
 
     def __init__(self, data, _children=(), _op='', label=''):
         self.data = data
+        # 0 = No effect (changing it does not change the loss function)
+        self.grad = 0.0
         self._prev = set(_children)
         self._op = _op
         self.label = label
@@ -62,8 +64,8 @@ def draw_dot(root):
     nodes, edges = trace(root)
     for n in nodes:
         uid = str(id(n))
-        dot.node(name=uid, label="{ %s | data %.4f}" %
-                 (n.label, n.data), shape='record')
+        dot.node(name=uid, label="{ %s | data %.4f | grad %.4f }" %
+                 (n.label, n.data, n.grad), shape='record')
         if n._op:
             dot.node(name=uid + n._op, label=n._op)
             dot.edge(uid + n._op, uid)
@@ -77,4 +79,53 @@ def draw_dot(root):
     return dot
 
 
+# Backpropagation Algorithm (Setting Up Grads)
+a.data += 0.01 * a.grad
+b.data += 0.01 * b.grad
+c.data += 0.01 * c.grad
+f.data += 0.01 * f.grad
+
+e = a*b
+d = e + c
+L = d * f
+
+a.grad = -2.0 * -3.0
+b.grad = -2.0 * 2.0
+c.grad = -2.0
+d.grad = -2
+e.grad = -2.0
+f.grad = 4.0
+L.grad = 1.0
+
 draw_dot(L)
+
+
+# def lol():
+#     h = 0.0001
+
+#     a = Value(2.0, label='a')
+#     b = Value(-3.0, label='b')
+#     c = Value(10.0, label='c')
+#     e = a*b
+#     e.label = 'e'
+#     d = e + c
+#     d.label = 'd'
+#     f = Value(-2, label='f')
+#     L = d * f
+#     L.label = 'L'
+#     L1 = L.data
+
+#     a = Value(2.0 + h, label='a')
+#     b = Value(-3.0, label='b')
+#     c = Value(10.0, label='c')
+#     e = a*b
+#     e.label = 'e'
+#     d = e + c
+#     d.label = 'd'
+#     f = Value(-2, label='f')
+#     L = d * f
+#     L.label = 'L'
+#     L2 = L.data
+
+#     # How much does 'L' changed?
+#     print((L2 - L1) / h)
