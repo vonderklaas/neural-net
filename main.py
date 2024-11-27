@@ -99,6 +99,8 @@ L.grad = 1.0
 
 draw_dot(L)
 
+print('what is next?')
+
 
 # def lol():
 #     h = 0.0001
