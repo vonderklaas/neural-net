@@ -1,4 +1,4 @@
-### Terminology
+# Terminology
 
 **The Loss Function** is how the network measures its mistakes. It's like a scorecard that tells the network, "You're this far off from the correct answer." The goal of training the neural network is to minimize this loss.
 If you're trying to guess a number, the loss function might be the difference between your guess and the actual number.
@@ -17,3 +17,4 @@ Each connection between neurons has a weight. These weights are adjusted during 
 
 **Vector** is a one-dimensional array of numbers, typically used for numerical computations. Unlike general-purpose data structures like Python lists, vectors (such as NumPy arrays) support element-wise mathematical operations directly, meaning you can perform operations like addition, multiplication, or exponentiation on every element of the vector at once, without needing loops.
 
+****
